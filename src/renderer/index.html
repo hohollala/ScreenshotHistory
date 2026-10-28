@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' file: data:; style-src 'self'; script-src 'self'" />
+  <title>어썸 캡처 모아</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">모아</div>
+        <div>
+          <h1>어썸 캡처 모아</h1>
+          <p class="brand-sub">로컬 스크린샷 갤러리</p>
+        </div>
+      </div>
+
+      <section class="folder-card">
+        <span class="label">현재 폴더</span>
+        <p id="folderPath" class="folder-path">—</p>
+        <div class="folder-actions">
+          <button id="btnChangeFolder" class="btn btn-primary" type="button">폴더 변경</button>
+          <button id="btnRefresh" class="btn" type="button">새로고침</button>
+        </div>
+      </section>
+
+      <section class="filter-section">
+        <h2>날짜 필터</h2>
+        <nav id="filterList" class="filter-list" aria-label="날짜 필터"></nav>
+      </section>
+
+      <footer class="sidebar-foot">
+        <p id="statusLine">준비됨</p>
+      </footer>
+    </aside>
+
+    <main class="content">
+      <header class="content-head">
+        <div>
+          <h2 id="contentTitle">스크린샷</h2>
+          <p id="contentMeta" class="content-meta"></p>
+        </div>
+        <p class="view-hint">이미지를 클릭하면 크게 볼 수 있어요</p>
+      </header>
+
+      <div id="loadingState" class="state" hidden>
+        <div class="spinner" aria-hidden="true"></div>
+        <p>스크린샷을 불러오는 중…</p>
+      </div>
+
+      <section id="emptyState" class="state empty" hidden>
+        <div class="empty-art" aria-hidden="true">🖼️</div>
+        <h3>표시할 스크린샷이 없습니다</h3>
+        <p>이 폴더에 PNG · JPG · WEBP 이미지가 없거나,<br />다른 폴더를 선택해야 해요.</p>
+        <button id="btnEmptyPick" class="btn btn-primary" type="button">다른 폴더 선택</button>
+      </section>
+
+      <div id="gallery" class="gallery"></div>
+    </main>
+  </div>
+
+  <!-- 다중 선택 작업 표시줄 -->
+  <div id="selectionBar" class="selection-bar" hidden>
+    <span id="selectionCount" class="selection-count">0개 선택됨</span>
+    <button id="btnCopySelected" class="btn" type="button">복사</button>
+    <button id="btnDeleteSelected" class="btn btn-danger" type="button">삭제</button>
+    <button id="btnSelectAll" class="btn" type="button">모두 선택</button>
+    <button id="btnClearSelection" class="btn" type="button">선택 해제</button>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <div class="lightbox-backdrop" data-action="close"></div>
+    <figure class="lightbox-card">
+      <button class="lb-close" type="button" data-action="close" aria-label="닫기">✕</button>
+      <button class="lb-nav lb-prev" type="button" data-action="prev" aria-label="이전 이미지">‹</button>
+      <div class="lb-stage">
+        <img id="lightboxImage" class="lightbox-image" alt="" />
+      </div>
+      <button class="lb-nav lb-next" type="button" data-action="next" aria-label="다음 이미지">›</button>
+      <figcaption class="lightbox-info">
+        <div class="lb-text">
+          <p id="lightboxName" class="lb-name"></p>
+          <p id="lightboxMeta" class="lb-meta"></p>
+        </div>
+        <div class="lb-actions">
+          <span id="lightboxCounter" class="lb-counter"></span>
+          <button class="btn" type="button" data-action="copy">복사</button>
+          <button class="btn btn-danger" type="button" data-action="delete">삭제</button>
+          <button id="btnReveal" class="btn btn-primary" type="button">파일 위치 열기</button>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

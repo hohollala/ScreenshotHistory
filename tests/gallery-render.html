@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>Gallery render test</title>
+  <link rel="stylesheet" href="../src/renderer/styles.css">
+</head>
+<body>
+  <div class="content" id="scroller" style="width:1000px;height:600px;overflow:auto;padding:0;">
+    <div id="gallery" class="gallery"></div>
+  </div>
+  <script type="module">
+    import { renderGallery } from '../src/renderer/modules/gallery.js';
+    window.renderGallery = renderGallery;
+  </script>
+</body>
+</html>

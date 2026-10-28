@@ -1,0 +1,60 @@
+{
+  "name": "screenshot-timeline",
+  "productName": "어썸 캡처 모아",
+  "version": "1.0.0",
+  "description": "내 컴퓨터의 스크린샷을 날짜별로 모아 보는 로컬 갤러리 앱 (Electron, 외부 API 없음)",
+  "main": "src/main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node tests/grouping.test.js && node tests/scanner.test.js",
+    "test:smoke": "electron tests/smoke.js && electron tests/smoke.js --empty",
+    "test:features": "electron tests/features-smoke.js",
+    "test:gallery": "electron tests/gallery-render-smoke.js",
+    "test:fixtures": "node tests/make-fixtures.js",
+    "icon:build": "electron scripts/generate-icon.js",
+    "test:icon": "node tests/icon-asset.test.js",
+    "dist:win": "npm run icon:build && electron-builder --win nsis --x64"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.screenshottimeline.app",
+    "productName": "어썸 캡처 모아",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/screenshot-timeline.ico",
+        "to": "screenshot-timeline.ico"
+      }
+    ],
+    "win": {
+      "icon": "assets/screenshot-timeline.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "어썸 캡처 모아",
+      "installerIcon": "assets/screenshot-timeline.ico",
+      "uninstallerIcon": "assets/screenshot-timeline.ico"
+    }
+  }
+}

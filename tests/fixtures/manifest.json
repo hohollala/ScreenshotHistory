@@ -1,0 +1,9 @@
+{
+  "expectedSectionKeys": [
+    "today",
+    "yesterday",
+    "week",
+    "month",
+    "older"
+  ]
+}

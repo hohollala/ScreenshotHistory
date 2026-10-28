@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" fill="none">
+  <defs>
+    <linearGradient id="tile" x1="18" y1="14" x2="238" y2="248" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#202B3C"/>
+      <stop offset="1" stop-color="#111722"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="61" y1="34" x2="199" y2="195" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F91FF"/>
+      <stop offset="1" stop-color="#8358F4"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="83" y1="76" x2="178" y2="158" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#78B7FF"/>
+      <stop offset="1" stop-color="#7068F5"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="110" y1="112" x2="163" y2="157" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D3E8FF"/>
+      <stop offset="1" stop-color="#A9B9FF"/>
+    </linearGradient>
+    <filter id="shadow" x="26" y="28" width="206" height="204" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+    <clipPath id="photoClip"><rect x="74" y="72" width="108" height="78" rx="12"/></clipPath>
+  </defs>
+  <rect x="10" y="10" width="236" height="236" rx="58" fill="url(#tile)"/>
+  <rect x="10.75" y="10.75" width="234.5" height="234.5" rx="57.25" stroke="#8291AA" stroke-opacity=".2" stroke-width="1.5"/>
+  <circle cx="128" cy="112" r="73" fill="#537CFF" fill-opacity=".13" filter="url(#shadow)"/>
+
+  <!-- Offset photo cards suggest a browsable collection. -->
+  <rect x="49" y="49" width="145" height="133" rx="20" transform="rotate(-8 49 49)" fill="#344259"/>
+  <rect x="57" y="42" width="145" height="133" rx="20" transform="rotate(5 57 42)" fill="#40516B"/>
+
+  <!-- The foreground screenshot uses the same blue-violet accent as the app. -->
+  <rect x="60" y="36" width="136" height="138" rx="21" fill="#EAF1FB"/>
+  <path d="M81 36h94a21 21 0 0 1 21 21v4H60v-4a21 21 0 0 1 21-21Z" fill="url(#brand)"/>
+  <circle cx="77" cy="49" r="3" fill="#EAF4FF" fill-opacity=".95"/>
+  <circle cx="88" cy="49" r="3" fill="#EAF4FF" fill-opacity=".68"/>
+  <circle cx="99" cy="49" r="3" fill="#EAF4FF" fill-opacity=".42"/>
+  <rect x="74" y="72" width="108" height="78" rx="12" fill="url(#screen)"/>
+  <g clip-path="url(#photoClip)">
+    <circle cx="158" cy="91" r="11" fill="#FFE9A9"/>
+    <path d="m62 146 31-35 17 18 22-27 55 54H62v-10Z" fill="url(#mountain)"/>
+    <path d="m128 143 20-23 39 36h-59v-13Z" fill="#D5D9FF" fill-opacity=".76"/>
+    <path d="M74 130c20-9 34-8 50 1 19 10 36 9 58-2v21H74v-20Z" fill="#5F70DC" fill-opacity=".54"/>
+  </g>
+  <rect x="74.75" y="72.75" width="106.5" height="76.5" rx="11.25" stroke="#FFFFFF" stroke-opacity=".58" stroke-width="1.5"/>
+  <rect x="75" y="158" width="58" height="5" rx="2.5" fill="#A7B4C9"/>
+  <rect x="139" y="158" width="25" height="5" rx="2.5" fill="#CBD4E2"/>
+
+  <!-- Timeline rail and dated-image markers. -->
+  <path d="M47 207h162" stroke="#53647E" stroke-width="6" stroke-linecap="round"/>
+  <path d="M47 207h108" stroke="url(#brand)" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="49" cy="207" r="11" fill="#192231" stroke="#75A8FF" stroke-width="5"/>
+  <circle cx="101" cy="207" r="8" fill="#718EFF" stroke="#192231" stroke-width="4"/>
+  <circle cx="155" cy="207" r="8" fill="#8C78F2" stroke="#192231" stroke-width="4"/>
+  <circle cx="207" cy="207" r="8" fill="#64738A" stroke="#192231" stroke-width="4"/>
+</svg>
